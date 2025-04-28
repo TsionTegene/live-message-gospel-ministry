@@ -1,0 +1,34 @@
+### Create a new donation
+POST http://localhost:8000/api/donation
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "donor_name": "John Doe",
+  "email": "john@example.com",
+  "amount": 100.50,
+  "message": "Keep up the great work!"
+}
+
+### Get all donations
+GET http://localhost:8000/api/donation
+
+### Get a donation by ID
+GET http://localhost:8000/api/donation/1
+
+### Update a donation
+PUT http://localhost:8000/api/donation/2
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "donor_name": "Jane Doe",
+  "email": "jane@example.com",
+  "amount": 200.00,
+  "message": "Thank you for everything!"
+}
+
+### Delete a donation
+DELETE http://localhost:8000/api/donation/1
+Authorization: Bearer {{token}}
+

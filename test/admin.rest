@@ -1,0 +1,26 @@
+### Register Admin
+POST http://localhost:8000/api/admin/register HTTP/1.1
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "email": "admin@example.com",
+  "password": "password123"
+}
+
+### Login Admin
+POST http://localhost:8000/api/admin/login HTTP/1.1
+Content-Type: application/json
+
+{
+  "email": "admin@example.com",
+  "password": "password123"
+}
+
+### Access Protected Route
+GET http://localhost:8000/api/events HTTP/1.1
+Authorization: Bearer {{token}}
+
+### Invalid Token (Access Protected Route)
+GET http://localhost:8000/api/users HTTP/1.1
+Authorization: Bearer invalid_token

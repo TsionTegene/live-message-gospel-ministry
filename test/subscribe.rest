@@ -1,0 +1,14 @@
+### Subscribe a new email
+POST http://localhost:8000/api/subscriber
+Content-Type: application/json
+
+{
+  "email": "test1@example.com"
+}
+
+### Get all subscribers
+GET http://localhost:8000/api/subscriber
+Authorization: Bearer {{token}}
+
+### Unsubscribe a subscriber by email
+DELETE http://localhost:8000/api/subscriber/unsubscribe/test@example.com

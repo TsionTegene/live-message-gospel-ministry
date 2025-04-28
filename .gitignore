@@ -1,19 +1,37 @@
+# Node modules
+node_modules/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Environment variables
+.env
+
+# Coverage directory
+coverage/
+
+# Build output
+dist/
+build/
+
+# Temporary files
+tmp/
+temp/
+
+# Editor settings
+.vscode/
+.idea/
+
+# OS-specific files
 .DS_Store
-
-# Images
-images/avatars/
-images/captchas/
-images/smileys/
-images/member_photos/
-images/signature_attachments/
-images/pm_attachments/
-
-# For security do not publish the following files
-system/expressionengine/config/database.php
-system/expressionengine/config/config.php
-
-# Caches
-sized/
-thumbs/
-_thumbs/
-*/expressionengine/cache/*
+Thumbs.db

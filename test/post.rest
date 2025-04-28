@@ -1,0 +1,33 @@
+### Create Post
+POST http://localhost:8000/api/post
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "title": "New Post Title",
+  "content": "This is the content of the post",
+  "imageUrl": "http://example.com/image.jpg",
+  "author_id": 19
+}
+
+### Get All Posts
+GET http://localhost:8000/api/post
+
+### Get Post by ID
+GET http://localhost:8000/api/post/1
+
+### Update Post
+PUT http://localhost:8000/api/post/1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "title": "Updated Post Title",
+  "content": "Updated content of the post",
+  "imageUrl": "http://example.com/updated_image.jpg"
+}
+
+### Delete Post
+DELETE http://localhost:8000/api/post/1
+Authorization: Bearer {{token}}
+

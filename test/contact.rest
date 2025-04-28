@@ -1,0 +1,38 @@
+### Create a contact message
+POST http://localhost:8000/api/contact-messages
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "email": "john.doe@example.com",
+  "subject": "Inquiry",
+  "message": "I have a question about your services."
+}
+
+### Get all contact messages
+GET http://localhost:8000/api/contact-messages
+Authorization: Bearer {{token}}
+
+
+### Get contact message by ID
+GET http://localhost:8000/api/contact-messages/1
+Authorization: Bearer {{token}}
+
+
+### Update contact message by ID
+PUT http://localhost:8000/api/contact-messages/1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+
+{
+  "name": "John Doe",
+  "email": "john.doe@example.com",
+  "subject": "Updated Inquiry",
+  "message": "I have an updated question about your services."
+}
+
+### Delete contact message by ID
+DELETE http://localhost:8000/api/contact-messages/1
+Authorization: Bearer {{token}}
+
