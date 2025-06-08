@@ -42,17 +42,17 @@ const PORT = process.env.PORT || 8000;
 const path = require("path");
 
 // Serve Vite static files
-app.use(express.static(path.join(__dirname, "../mission-connect-hub/dist")));
+// app.use(express.static(path.join(__dirname, "../mission-connect-hub/dist")));
 
-const indexPath = path.join(__dirname, "../mission-connect-hub/dist/index.html");
-console.log("Resolved index.html path:", indexPath);
+// const indexPath = path.join(__dirname, "../mission-connect-hub/dist/index.html");
+// console.log("Resolved index.html path:", indexPath);
 
 
-app.get("/", (req, res) => {
-const indexPath = path.join(__dirname, "../mission-connect-hub/dist/index.html");
-  console.log("Serving frontend from:", indexPath);
-  res.sendFile(indexPath);
-});
+// app.get("/", (req, res) => {
+// const indexPath = path.join(__dirname, "../mission-connect-hub/dist/index.html");
+//   console.log("Serving frontend from:", indexPath);
+//   res.sendFile(indexPath);
+// });
 
 
 
