@@ -4,9 +4,9 @@ const router = express.Router();
 const adminController = require("../controllers/admin-user-controller");
 
 // Register admin
-router.post("/register", adminController.registerAdmin);
+router.post("/signup", adminController.signup);
 
 // Login admin
-router.post("/login", adminController.loginAdmin);
+router.post("/login", adminController.login);
 
 module.exports = router;

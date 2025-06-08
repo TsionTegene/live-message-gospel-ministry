@@ -1,7 +1,9 @@
+@baseUrl = http://localhost:8000
+
 ### Create Event
-POST http://localhost:8000/api/event HTTP/1.1
+POST {{baseUrl}}/api/event
 Content-Type: application/json
-Authorization: Bearer {{token}}
+Authorization: Bearer {{login.response.body.token}}
 
 {
   "title": "Sample Event",
@@ -11,14 +13,14 @@ Authorization: Bearer {{token}}
 }
 
 ### Get All Events
-GET http://localhost:8000/api/event HTTP/1.1
+GET {{baseUrl}}/api/event
 
-### Get Event by ID (Replace {id} with actual event ID after creating it)
-GET http://localhost:8000/api/event/1 HTTP/1.1
+### Get Event by ID
+GET {{baseUrl}}/api/event/1
 
-### Update Event (Replace {id} with actual event ID)
-PUT http://localhost:8000/api/event/1 HTTP/1.1
-Authorization: Bearer {{token}}
+### Update Event
+PUT {{baseUrl}}/api/event/1
+Authorization: Bearer {{login.response.body.token}}
 Content-Type: application/json
 
 {
@@ -28,7 +30,6 @@ Content-Type: application/json
   "image_url": "https://example.com/updated-event.jpg"
 }
 
-### Delete Event (Replace {id} with actual event ID)
-DELETE http://localhost:8000/api/event/15 HTTP/1.1
-Authorization: Bearer {{token}}
-
+### Delete Event
+DELETE {{baseUrl}}/api/event/1
+Authorization: Bearer {{login.response.body.token}}

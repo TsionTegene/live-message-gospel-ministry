@@ -1,15 +1,19 @@
+@baseUrl = http://localhost:8000
+
 ### Register Admin
-POST http://localhost:8000/api/admin/register HTTP/1.1
+POST {{baseUrl}}/api/admin/signup
 Content-Type: application/json
 
 {
+  "inviteCode": "supersecret",
   "username": "admin",
   "email": "admin@example.com",
   "password": "password123"
 }
 
 ### Login Admin
-POST http://localhost:8000/api/admin/login HTTP/1.1
+# @name login
+POST {{baseUrl}}/api/admin/login
 Content-Type: application/json
 
 {
@@ -17,10 +21,10 @@ Content-Type: application/json
   "password": "password123"
 }
 
-### Access Protected Route
-GET http://localhost:8000/api/events HTTP/1.1
-Authorization: Bearer {{token}}
+### Access Protected Route with extracted token
+GET {{baseUrl}}/api/event
+Authorization: Bearer {{login.response.body.token}}
 
-### Invalid Token (Access Protected Route)
-GET http://localhost:8000/api/users HTTP/1.1
+### Invalid Token Example
+GET {{baseUrl}}/api/event
 Authorization: Bearer invalid_token

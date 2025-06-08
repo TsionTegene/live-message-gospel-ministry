@@ -1,4 +1,3 @@
-// middlewares/authMiddleware.js
 const jwt = require("jsonwebtoken");
 
 function authenticateToken(req, res, next) {
@@ -6,17 +5,28 @@ function authenticateToken(req, res, next) {
   const token = authHeader && authHeader.split(" ")[1]; // Bearer TOKEN
 
   if (!token) {
-    return res
-      .status(401)
-      .json({ message: "Access Denied: No Token Provided" });
+    console.log("No token provided");
+    return res.status(401).json({ message: "Access Denied: No Token Provided" });
   }
 
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    req.admin = decoded; // attach admin info to request
+    console.log("Decoded token:", decoded); // Debug log
+    
+    // Verify admin role exists in token
+    if (!decoded.role || decoded.role !== "admin") {
+      console.log("Missing or invalid role in token");
+      return res.status(403).json({ message: "Admin privilege required" });
+    }
+    
+    req.admin = decoded;
     next();
   } catch (error) {
-    return res.status(403).json({ message: "Invalid Token" });
+    console.log("Token verification failed:", error.message);
+    return res.status(403).json({ 
+      message: "Invalid Token",
+      error: error.message // Only for development, remove in production
+    });
   }
 }
 
