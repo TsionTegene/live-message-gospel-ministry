@@ -50,7 +50,7 @@ const createEvent = async (req, res) => {
 const getAllEvents = async (req, res) => {
   try {
     const events = await eventModel.getAllEvents();
-
+    console.log("✅ Events fetched:", events);
     const normalizedEvents = events.map(event => ({
       ...event,
       image: event.image_url, // normalize to match frontend expectation
