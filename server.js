@@ -18,7 +18,7 @@ dotenv.config();
 const app = express();
 
 const corsOptions = {
-  origin: ['https://live-message-frontend.onrender.com/',"http://localhost:8080"],
+  origin: 'https://live-message-frontend.onrender.com/',
   credentials:true,
   methods: ['GET','POST','PUT','DELETE'],
 };
