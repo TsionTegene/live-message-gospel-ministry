@@ -18,7 +18,7 @@ dotenv.config();
 const app = express();
 
 const corsOptions = {
-  origin: 'https://live-message-frontend.onrender.com/',
+  origin: ['https://live-message-frontend.onrender.com','http://localhost:5173','http://localhost:8080','http://localhost:8000'],
   credentials:true,
   methods: ['GET','POST','PUT','DELETE'],
 };
@@ -26,7 +26,7 @@ app.use(cors(corsOptions));
 // Middlewares
 app.use(express.json());
 app.use(bodyParser.json());
-
+//app.options('*',cors(corsOptions));
 
 
 // Routes
@@ -37,6 +37,11 @@ app.use("/api/contact-messages", contactMessageRoutes);
 app.use("/api/subscriber", subscribeRoutes);
 app.use("/api/post", postRoutes);
 app.use("/api/registrations", registrationRoutes);
+
+app.get('/', (req, res) =>{
+  res.send('Mission Hub API is running!');
+});
+
 // Start server
 const PORT = process.env.PORT || 8000;
 const path = require("path");
